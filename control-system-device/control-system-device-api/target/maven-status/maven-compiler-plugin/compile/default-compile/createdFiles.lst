@@ -1,0 +1,5 @@
+com\aether\deviceapi\entity\OpRecord.class
+com\aether\deviceapi\DeviceApi.class
+com\aether\deviceapi\entity\ComputerStatus.class
+com\aether\deviceapi\entity\DeviceSiren.class
+com\aether\deviceapi\entity\DevicePower.class

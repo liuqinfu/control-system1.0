@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.devicemanageservice.dao.mapper.AuthDeviceMapper" >
+  <resultMap id="BaseResultMap" type="com.aether.devicemanageservice.dao.model.AuthDevice" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="bind_id" property="bindId" jdbcType="CHAR" />
+    <result column="other_userid" property="otherUserid" jdbcType="CHAR" />
+    <result column="pwd" property="pwd" jdbcType="VARCHAR" />
+    <result column="business_record_id" property="businessRecordId" jdbcType="CHAR" />
+    <result column="is_valid" property="isValid" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.aether.devicemanageservice.dao.model.AuthDevice" >
+    insert into t_control_authdevice (id, bind_id, other_userid, 
+      pwd, business_record_id, is_valid,
+      create_time, update_time)
+    values (#{id,jdbcType=CHAR}, #{bindId,jdbcType=CHAR}, #{otherUserid,jdbcType=CHAR}, 
+      #{pwd,jdbcType=VARCHAR}, #{business_record_id,jdbcType=CHAR}, #{isValid,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aether.devicemanageservice.dao.model.AuthDevice" >
+    insert into t_control_authdevice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="bindId != null" >
+        bind_id,
+      </if>
+      <if test="otherUserid != null" >
+        other_userid,
+      </if>
+      <if test="pwd != null" >
+        pwd,
+      </if>
+      <if test="businessRecordId != null" >
+        business_record_id,
+      </if>
+      <if test="isValid != null" >
+        is_valid,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="bindId != null" >
+        #{bindId,jdbcType=CHAR},
+      </if>
+      <if test="otherUserid != null" >
+        #{otherUserid,jdbcType=CHAR},
+      </if>
+      <if test="pwd != null" >
+        #{pwd,jdbcType=VARCHAR},
+      </if>
+      <if test="businessRecordId != null" >
+        #{business_record_id,jdbcType=CHAR},
+      </if>
+      <if test="isValid != null" >
+        #{isValid,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="unauthDeviceToOther">
+    update t_control_authdevice set is_valid = 0,update_time = now() where bind_id = #{bindId} and business_record_id = #{businessRecordId}
+  </update>
+
+  <update id="unauthDeviceByBindId">
+    update t_control_authdevice set is_valid = 0,update_time = now() where bind_id = #{bindId}
+  </update>
+
+</mapper>

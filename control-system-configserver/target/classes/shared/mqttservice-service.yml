@@ -1,0 +1,13 @@
+server:
+  port: 8084
+
+mqtt:
+#  url: tcp://123.58.34.188:31883
+  url: tcp://localhost:1883
+  server_sub_topic: /serversub
+  device_sub_topic: /devicesub
+  suffix_topic: /#
+
+SM4AndSEAkeys:
+  SMS4kEY: B122AD0A7A362EC7ABA1DEEFB3BF4915
+  AESkEY: B122AD0A7A362EC8ABA1DEEFB3BF4915

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c7de931-d20c-4dc5-8a4d-262f9141ce2c" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Qb6TirXyzUdjg5rfUknSdW3OrK" />
+  <component name="PropertiesComponent">
+    <property name="MyBatisLogPluginparameters" value="Parameters:" />
+    <property name="MyBatisLogPluginpreparing" value="Preparing:" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../SIPLockplatform" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.3862069" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.aether.mqttapi" />
+      <recent name="com.aether.eureka" />
+      <recent name="com.aether.configserver" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-zuul\src\main\resources" />
+      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-mqtt\control-system-mqtt-service\src\main\resources" />
+      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-eureka\src\main\resources" />
+      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-device\control-system-device-service\src\main\resources" />
+      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-customer\control-system-customer-service\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.AESUtils">
+    <configuration name="AESUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.aether.common.utils.AESUtils" />
+      <module name="control-system-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.aether.common.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="control-system-configserver" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aether.configserver.ConfigServerApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CustomerServiceApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="control-system-customer-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aether.customerservice.CustomerServiceApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceManageApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="control-system-device-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aether.devicemanageservice.DeviceManageApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="control-system-eureka" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aether.eureka.EurekaApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MqttApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="control-system-mqtt-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aether.mqttservice.MqttApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZuulApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="control-system-zuul" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.aether.zuul.ZuulApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AESUtils" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.16550657" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@65a2f4ba" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c7de931-d20c-4dc5-8a4d-262f9141ce2c" name="Default Changelist" comment="" />
+      <created>1568026958228</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1568026958228</updated>
+      <workItem from="1568026963307" duration="1411000" />
+      <workItem from="1568074872887" duration="22750000" />
+      <workItem from="1568105977853" duration="9568000" />
+      <workItem from="1568160612533" duration="8281000" />
+      <workItem from="1568169315279" duration="14998000" />
+      <workItem from="1568187177773" duration="11448000" />
+      <workItem from="1568199041774" duration="4191000" />
+      <workItem from="1568248279342" duration="29116000" />
+      <workItem from="1568430594592" duration="2205000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

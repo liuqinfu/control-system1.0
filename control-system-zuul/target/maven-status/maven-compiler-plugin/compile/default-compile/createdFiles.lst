@@ -1,0 +1,7 @@
+com\aether\zuul\ZuulApp.class
+com\aether\zuul\configration\RedisConfig.class
+com\aether\zuul\ZuulApp$DocumentationConfig.class
+com\aether\zuul\filter\PostFilter.class
+com\aether\zuul\filter\AllowOriginFilter.class
+com\aether\zuul\filter\ErrorFilter.class
+com\aether\zuul\filter\PreCheckFilter.class

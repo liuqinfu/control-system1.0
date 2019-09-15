@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: configserver
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/shared
+#          search-locations: file:/usr/local/control-system/profiles
+  profiles:
+    active: native
+
+server:
+  port: 8081

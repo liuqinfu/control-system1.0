@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.devicemanageservice.dao.mapper.OpRecordMapper">
+    <resultMap id="BaseResultMap" type="com.aether.deviceapi.entity.OpRecord">
+        <result column="id" property="id" jdbcType="CHAR"/>
+        <result column="devicesn" property="devicesn" jdbcType="VARCHAR"/>
+        <result column="op_userid" property="opUserid" jdbcType="CHAR"/>
+        <result column="op_time" property="opTime" jdbcType="TIMESTAMP"/>
+        <result column="result" property="result" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+  <resultMap id="OpRecordInfoDTOMap" type="com.aether.devicemanageservice.dto.OpRecordInfoDTO">
+    <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+    <result column="country_code" property="countryCode" jdbcType="VARCHAR"/>
+    <result column="device_sn" property="deviceSn" jdbcType="VARCHAR"/>
+    <result column="device_name" property="deviceName" jdbcType="VARCHAR"/>
+    <result column="result" property="result" jdbcType="INTEGER"/>
+    <result column="op_time" property="opTime" jdbcType="TIMESTAMP"/>
+  </resultMap>
+    <insert id="insert" parameterType="com.aether.deviceapi.entity.OpRecord">
+    insert into t_control_op_record (id, devicesn, op_userid, 
+      op_time, result, create_time
+      )
+    values (#{id,jdbcType=CHAR}, #{devicesn,jdbcType=VARCHAR}, #{opUserid,jdbcType=CHAR}, 
+      #{opTime,jdbcType=TIMESTAMP}, #{result,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.aether.deviceapi.entity.OpRecord">
+        insert into t_control_op_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="devicesn != null">
+                devicesn,
+            </if>
+            <if test="opUserid != null">
+                op_userid,
+            </if>
+            <if test="opTime != null">
+                op_time,
+            </if>
+            <if test="result != null">
+                result,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=CHAR},
+            </if>
+            <if test="devicesn != null">
+                #{devicesn,jdbcType=VARCHAR},
+            </if>
+            <if test="opUserid != null">
+                #{opUserid,jdbcType=CHAR},
+            </if>
+            <if test="opTime != null">
+                #{opTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="result != null">
+                #{result,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <insert id="batchInsertRecord">
+        insert into t_control_op_record values
+        <foreach collection="opRecordList" item="op" separator="," open="(" close=")">
+            #{op.id},#{op.devicesn},(select ID from t_control_user where
+            login_name=#{op.loginName}),#{op.opTime},#{op.result},now()
+        </foreach>
+    </insert>
+
+    <select id="selectOphistoryByUserId" resultMap="OpRecordInfoDTOMap">
+    select tcu.mobile,tcu.country_code,tcd.device_sn,tcd.device_name,tcor.op_time,tcor.result
+    from t_control_device tcd,
+    t_control_authdevice tcad,
+    t_control_op_record tcor,
+    t_control_user tcu
+    where tcd.device_sn = tcor.devicesn
+		and tcd.user_id = tcu.ID
+		and tcd.`disable`='0'
+		and tcd.device_type = #{deviceType}
+		and tcd.user_id = #{userId}
+		or (tcd.id = tcad.bind_id and tcad.other_userid = tcu.ID and tcad.is_valid = 1
+			and tcd.device_sn = tcor.devicesn
+			and tcd.user_id = tcu.ID
+			and tcd.`disable`='0'
+			and tcd.device_type = #{deviceType}
+			and tcd.user_id = #{userId}
+			)
+		order by tcor.op_time desc
+  </select>
+
+
+</mapper>

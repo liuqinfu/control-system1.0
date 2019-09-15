@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>control-system</artifactId>
+        <groupId>com.aether</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>control-system-common</artifactId>
+    <description>公共工具</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.aether</groupId>
+            <artifactId>QRCode</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+    </dependencies>
+
+    <!--
+    mvn install:install-file -Dfile=QRCode.jar -DgroupId=com.aether -DartifactId=QRCode -Dversion=0.0.1 -Dpackaging=jar
+
+    nohup java -jar control-system-configserver-0.0.1-SNAPSHOT.jar >./logs/config.log &
+
+    nohup java -jar control-system-eureka-0.0.1-SNAPSHOT.jar >./logs/eureka.log &
+
+    nohup java -jar control-system-zuul-0.0.1-SNAPSHOT.jar >./logs/zuul.log &
+
+    nohup java -jar control-system-customer-service-0.0.1-SNAPSHOT.jar >./logs/customer.log &
+
+    nohup java -jar control-system-device-service-0.0.1-SNAPSHOT.jar >./logs/devicemanage.log &
+
+    nohup java -jar control-system-mqtt-service-0.0.1-SNAPSHOT.jar >./logs/mqtt.log &
+
+
+    -->
+
+    <!--必须如下，否则common中的内容打包报错，无法引用！！！！ 参考：http://www.manongjc.com/article/53830.html -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <compilerArguments>
+                        <!-- 打包本地jar包 -->
+                        <extdirs>${project.basedir}/lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>lib</directory>
+                <targetPath>BOOT-INF/lib/</targetPath>
+                <includes>
+                    <include>**/*.jar</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+
+</project>

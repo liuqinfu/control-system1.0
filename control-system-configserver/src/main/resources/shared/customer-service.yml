@@ -1,0 +1,105 @@
+swagger:
+  base-package: com.aether.customerservice.controller
+spring:
+  #设置文件上传大小限制
+  servlet:
+    multipart:
+      max-file-size: 52428800 #单个文件大小限制
+      max-request-size: 104857600 #单次请求文件大小限制
+  datasource:
+    #   数据源基本配置
+    username: root
+    password: 123456
+#    url: jdbc:mysql://123.58.34.188:33306/control-system?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    url: jdbc:mysql://localhost:3306/control-system?serverTimezone=Asia/Shanghai&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    #   数据源其他配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis:
+  type-aliases-package: com.siplock.devicemanagecenter.dao.model  # 注意：对应实体类的路径
+  configuration:
+    mapUnderscoreToCamelCase: true
+    callSettersOnNulls: true
+    logImpl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+server:
+  port: 8083
+#  max-http-header-size: 20480
+
+#二维码访问域名
+QR_CODE_URL_PREFIX: http://123.58.34.188:38080/qr/
+#二维码本地存放路径(绝对路径)
+QR_LOCAL_PATH: /usr/local/control-system/qrcodes/
+
+#用户头像访问域名
+HEAD_IMG_DOMAIN: http://123.58.34.188:38080/head-img/
+#用户头像本地存放路径(绝对路径)
+HEAD_IMG_DEST: /usr/local/control-system/headImg/
+
+
+#短信发送配置
+sms:
+  location: CN
+  dalu: #大陆
+    url: http://www.ztsms.cn:8800/sendNSms.do
+    username: xingyu888
+    password: Xingyu201688
+    productid: 676767
+  guoji: #国际
+    url: http://www.ztsms.cn:8800/sendGSms.do
+    username: Gjxingyu666
+    password: 9OAJVKw4
+    productid: 151230
+
+#邮箱验证码配置信息
+mail:
+  #发送邮箱
+  FROM_MAIL: gaoj@s-ec.com
+  # 邮箱密码
+  MAIL_PWD: Aether_123456
+  # 发送邮箱协议
+  MAIL_HOST: smtp.exmail.qq.com
+
+#Matser的ip地址
+redis:
+  hostName: localhost
+  #端口号
+  port: 6379
+  #如果有密码
+  password: 123456
+  #客户端超时时间单位是毫秒 默认是2000
+  timeout: 10000
+  #最大空闲数
+  maxIdle: 300
+  #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用maxTotal
+  #maxActive: 600
+  #控制一个pool可分配多少个jedis实例,用来替换上面的maxActive,如果是jedis 2.4以后用该属性
+  maxTotal: 1000
+  #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+  maxWaitMillis: 1000
+  #连接的最小空闲时间 默认1800000毫秒(30分钟)
+  minEvictableIdleTimeMillis: 300000
+  #每次释放连接的最大数目,默认3
+  numTestsPerEvictionRun: 1024
+  #逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+  timeBetweenEvictionRunsMillis: 30000
+  #是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+  testOnBorrow: true
+  #在空闲时检查有效性, 默认false
+  testWhileIdle: true

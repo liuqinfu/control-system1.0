@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.devicemanageservice.dao.mapper.DevicePowerMapper" >
+  <resultMap id="BaseResultMap" type="com.aether.deviceapi.entity.DevicePower" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="devicesn" property="devicesn" jdbcType="VARCHAR" />
+    <result column="power" property="power" jdbcType="INTEGER" />
+    <result column="report_time" property="reportTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <insert id="insert" parameterType="com.aether.deviceapi.entity.DevicePower" >
+    insert into t_control_device_power (id, devicesn, power, 
+      report_time)
+    values (#{id,jdbcType=CHAR}, #{devicesn,jdbcType=VARCHAR}, #{power,jdbcType=INTEGER}, 
+      #{reportTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aether.deviceapi.entity.DevicePower" >
+    insert into t_control_device_power
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="devicesn != null" >
+        devicesn,
+      </if>
+      <if test="power != null" >
+        power,
+      </if>
+      <if test="reportTime != null" >
+        report_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="devicesn != null" >
+        #{devicesn,jdbcType=VARCHAR},
+      </if>
+      <if test="power != null" >
+        #{power,jdbcType=INTEGER},
+      </if>
+      <if test="reportTime != null" >
+        #{reportTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <delete id="deleteDevicePower" parameterType="java.lang.String">
+    delete t_control_device_power where devicesn = #{deviceSn}
+  </delete>
+</mapper>

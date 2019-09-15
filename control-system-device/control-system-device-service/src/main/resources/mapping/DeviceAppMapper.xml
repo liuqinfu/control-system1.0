@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aether.devicemanageservice.dao.mapper.DeviceAppMapper">
+    <resultMap id="BaseResultMap" type="com.aether.devicemanageservice.dao.model.DeviceApp">
+        <result column="iidd" jdbcType="CHAR" property="iidd"/>
+        <result column="app_name" jdbcType="VARCHAR" property="appName"/>
+        <result column="app_type" jdbcType="INTEGER" property="appType"/>
+        <result column="device_type" jdbcType="INTEGER" property="deviceType"/>
+        <result column="app_id" jdbcType="CHAR" property="appId"/>
+        <result column="app_secret" jdbcType="VARCHAR" property="appSecret"/>
+        <result column="contacts" jdbcType="VARCHAR" property="contacts"/>
+        <result column="contacts_mobile" jdbcType="VARCHAR" property="contactsMobile"/>
+        <result column="public_key" jdbcType="VARCHAR" property="publicKey"/>
+        <result column="private_key" jdbcType="VARCHAR" property="privateKey"/>
+        <result column="app_purpose" jdbcType="VARCHAR" property="appPurpose"/>
+        <result column="company_addr" jdbcType="VARCHAR" property="companyAddr"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="company_info" jdbcType="VARCHAR" property="companyInfo"/>
+        <result column="request_count" jdbcType="VARCHAR" property="requestCount"/>
+        <result column="device_comand" jdbcType="VARCHAR" property="deviceComand"/>
+        <result column="device_sn" jdbcType="VARCHAR" property="deviceSn"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="user_id" jdbcType="CHAR" property="userId"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="create_by" jdbcType="CHAR" property="createBy"/>
+        <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="modify_by" jdbcType="CHAR" property="modifyBy"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.aether.devicemanageservice.dao.model.DeviceApp">
+    insert into t_sys_app (iidd, app_name, app_type, 
+      device_type, app_id, app_secret, 
+      contacts, contacts_mobile, public_key, 
+      private_key, app_purpose, company_addr, 
+      email, company_info, request_count, 
+      device_comand, device_sn, status, 
+      user_id, create_time, create_by, 
+      modify_time, modify_by)
+    values (#{iidd,jdbcType=CHAR}, #{appName,jdbcType=VARCHAR}, #{appType,jdbcType=INTEGER}, 
+      #{deviceType,jdbcType=INTEGER}, #{appId,jdbcType=CHAR}, #{appSecret,jdbcType=VARCHAR}, 
+      #{contacts,jdbcType=VARCHAR}, #{contactsMobile,jdbcType=VARCHAR}, #{publicKey,jdbcType=VARCHAR}, 
+      #{privateKey,jdbcType=VARCHAR}, #{appPurpose,jdbcType=VARCHAR}, #{companyAddr,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{companyInfo,jdbcType=VARCHAR}, #{requestCount,jdbcType=VARCHAR}, 
+      #{deviceComand,jdbcType=VARCHAR}, #{deviceSn,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{userId,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=CHAR}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{modifyBy,jdbcType=CHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.aether.devicemanageservice.dao.model.DeviceApp">
+        insert into t_sys_app
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="iidd != null">
+                iidd,
+            </if>
+            <if test="appName != null">
+                app_name,
+            </if>
+            <if test="appType != null">
+                app_type,
+            </if>
+            <if test="deviceType != null">
+                device_type,
+            </if>
+            <if test="appId != null">
+                app_id,
+            </if>
+            <if test="appSecret != null">
+                app_secret,
+            </if>
+            <if test="contacts != null">
+                contacts,
+            </if>
+            <if test="contactsMobile != null">
+                contacts_mobile,
+            </if>
+            <if test="publicKey != null">
+                public_key,
+            </if>
+            <if test="privateKey != null">
+                private_key,
+            </if>
+            <if test="appPurpose != null">
+                app_purpose,
+            </if>
+            <if test="companyAddr != null">
+                company_addr,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="companyInfo != null">
+                company_info,
+            </if>
+            <if test="requestCount != null">
+                request_count,
+            </if>
+            <if test="deviceComand != null">
+                device_comand,
+            </if>
+            <if test="deviceSn != null">
+                device_sn,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="modifyTime != null">
+                modify_time,
+            </if>
+            <if test="modifyBy != null">
+                modify_by,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="iidd != null">
+                #{iidd,jdbcType=CHAR},
+            </if>
+            <if test="appName != null">
+                #{appName,jdbcType=VARCHAR},
+            </if>
+            <if test="appType != null">
+                #{appType,jdbcType=INTEGER},
+            </if>
+            <if test="deviceType != null">
+                #{deviceType,jdbcType=INTEGER},
+            </if>
+            <if test="appId != null">
+                #{appId,jdbcType=CHAR},
+            </if>
+            <if test="appSecret != null">
+                #{appSecret,jdbcType=VARCHAR},
+            </if>
+            <if test="contacts != null">
+                #{contacts,jdbcType=VARCHAR},
+            </if>
+            <if test="contactsMobile != null">
+                #{contactsMobile,jdbcType=VARCHAR},
+            </if>
+            <if test="publicKey != null">
+                #{publicKey,jdbcType=VARCHAR},
+            </if>
+            <if test="privateKey != null">
+                #{privateKey,jdbcType=VARCHAR},
+            </if>
+            <if test="appPurpose != null">
+                #{appPurpose,jdbcType=VARCHAR},
+            </if>
+            <if test="companyAddr != null">
+                #{companyAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="companyInfo != null">
+                #{companyInfo,jdbcType=VARCHAR},
+            </if>
+            <if test="requestCount != null">
+                #{requestCount,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceComand != null">
+                #{deviceComand,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceSn != null">
+                #{deviceSn,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=CHAR},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createBy != null">
+                #{createBy,jdbcType=CHAR},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifyBy != null">
+                #{modifyBy,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectDeviceAppBySn" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select device_type from t_sys_app where device_sn =#{sn}
+  </select>
+</mapper>

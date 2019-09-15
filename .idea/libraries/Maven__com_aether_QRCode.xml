@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.aether:QRCode">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/control-system-common/target/control-system-common-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.m2/repository/com/aether/QRCode/QRCode--javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.m2/repository/com/aether/QRCode/QRCode--sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

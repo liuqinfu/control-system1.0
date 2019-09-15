@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/control-system-common/control-system-common.iml" filepath="$PROJECT_DIR$/control-system-common/control-system-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-configserver/control-system-configserver.iml" filepath="$PROJECT_DIR$/control-system-configserver/control-system-configserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-customer/control-system-customer.iml" filepath="$PROJECT_DIR$/control-system-customer/control-system-customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-customer/control-system-customer-api/control-system-customer-api.iml" filepath="$PROJECT_DIR$/control-system-customer/control-system-customer-api/control-system-customer-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-customer/control-system-customer-service/control-system-customer-service.iml" filepath="$PROJECT_DIR$/control-system-customer/control-system-customer-service/control-system-customer-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-device/control-system-device.iml" filepath="$PROJECT_DIR$/control-system-device/control-system-device.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-device/control-system-device-api/control-system-device-api.iml" filepath="$PROJECT_DIR$/control-system-device/control-system-device-api/control-system-device-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-device/control-system-device-service/control-system-device-service.iml" filepath="$PROJECT_DIR$/control-system-device/control-system-device-service/control-system-device-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-eureka/control-system-eureka.iml" filepath="$PROJECT_DIR$/control-system-eureka/control-system-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-mqtt/control-system-mqtt.iml" filepath="$PROJECT_DIR$/control-system-mqtt/control-system-mqtt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-mqtt/control-system-mqtt-api/control-system-mqtt-api.iml" filepath="$PROJECT_DIR$/control-system-mqtt/control-system-mqtt-api/control-system-mqtt-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-mqtt/control-system-mqtt-service/control-system-mqtt-service.iml" filepath="$PROJECT_DIR$/control-system-mqtt/control-system-mqtt-service/control-system-mqtt-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system-zuul/control-system-zuul.iml" filepath="$PROJECT_DIR$/control-system-zuul/control-system-zuul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/control-system1.0.iml" filepath="$PROJECT_DIR$/control-system1.0.iml" />
+    </modules>
+  </component>
+</project>

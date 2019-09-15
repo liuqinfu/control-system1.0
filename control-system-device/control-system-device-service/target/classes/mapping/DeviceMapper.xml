@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.devicemanageservice.dao.mapper.DeviceMapper">
+    <resultMap id="BaseResultMap" type="com.aether.devicemanageservice.dao.model.Device">
+        <result column="id" property="id" jdbcType="CHAR"/>
+        <result column="device_sn" property="deviceSn" jdbcType="VARCHAR"/>
+        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <result column="device_name" property="deviceName" jdbcType="VARCHAR"/>
+        <result column="device_type" property="deviceType" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="CHAR"/>
+        <result column="encry_type" property="encryType" jdbcType="INTEGER"/>
+        <result column="disable" property="disable" jdbcType="VARCHAR"/>
+        <result column="isActive" property="isactive" jdbcType="INTEGER"/>
+        <result column="active_time" property="activeTime" jdbcType="TIMESTAMP"/>
+        <result column="isalive" property="isalive" jdbcType="INTEGER"/>
+        <result column="breath_time" property="breathTime" jdbcType="TIMESTAMP"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <resultMap id="MineDeviceInfoMap" type="com.aether.devicemanageservice.dto.MineDeviceInfoDTO">
+        <result column="device_sn" property="deviceSn" jdbcType="VARCHAR"/>
+        <result column="device_name" property="deviceName" jdbcType="VARCHAR"/>
+        <result column="device_type" property="deviceType" jdbcType="INTEGER"/>
+        <result column="user_id" property="belongUser" jdbcType="CHAR"/>
+        <result column="isActive" property="isActive" jdbcType="INTEGER"/>
+        <result column="isalive" property="isalive" jdbcType="INTEGER"/>
+        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <result column="power" property="power" jdbcType="INTEGER"/>
+        <result column="siren" property="siren" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="BeAuthedDeviceInfoMap" type="com.aether.devicemanageservice.dto.BeAuthedDeviceInfoDTO">
+        <result column="device_sn" property="deviceSn" jdbcType="VARCHAR"/>
+        <result column="device_name" property="deviceName" jdbcType="VARCHAR"/>
+        <result column="device_type" property="deviceType" jdbcType="INTEGER"/>
+        <result column="user_id" property="belongUser" jdbcType="CHAR"/>
+        <result column="isalive" property="isalive" jdbcType="INTEGER"/>
+        <result column="pwd" property="pwd" jdbcType="VARCHAR"/>
+        <result column="power" property="power" jdbcType="INTEGER"/>
+        <result column="siren" property="siren" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="AuthedUserInfoMap" type="com.aether.devicemanageservice.dto.AuthedUserDTO">
+        <result column="head_img" property="headImg" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="country_code" property="countryCode" jdbcType="VARCHAR"/>
+        <result column="create_time" property="authTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.aether.devicemanageservice.dao.model.Device">
+    insert into t_control_device (id, device_sn, pwd, 
+      device_name, device_type, user_id, 
+      encry_type, disable, isActive, 
+      active_time, isalive,breath_time,create_time, update_time
+      )
+    values (#{id,jdbcType=CHAR}, #{deviceSn,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{deviceName,jdbcType=VARCHAR}, #{deviceType,jdbcType=INTEGER}, #{userId,jdbcType=CHAR}, 
+      #{encryType,jdbcType=INTEGER}, #{disable,jdbcType=VARCHAR}, #{isactive,jdbcType=INTEGER}, 
+      #{activeTime,jdbcType=TIMESTAMP}, #{isalive,jdbcType=INTEGER},
+      #{breath_time,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.aether.devicemanageservice.dao.model.Device">
+        insert into t_control_device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="deviceSn != null">
+                device_sn,
+            </if>
+            <if test="pwd != null">
+                pwd,
+            </if>
+            <if test="deviceName != null">
+                device_name,
+            </if>
+            <if test="deviceType != null">
+                device_type,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="encryType != null">
+                encry_type,
+            </if>
+            <if test="disable != null">
+                disable,
+            </if>
+            <if test="isactive != null">
+                isActive,
+            </if>
+            <if test="activeTime != null">
+                active_time,
+            </if>
+            <if test="isalive != null">
+                isalive,
+            </if>
+            <if test="breathTime != null">
+                breath_time,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=CHAR},
+            </if>
+            <if test="deviceSn != null">
+                #{deviceSn,jdbcType=VARCHAR},
+            </if>
+            <if test="pwd != null">
+                #{pwd,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceName != null">
+                #{deviceName,jdbcType=VARCHAR},
+            </if>
+            <if test="deviceType != null">
+                #{deviceType,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=CHAR},
+            </if>
+            <if test="encryType != null">
+                #{encryType,jdbcType=INTEGER},
+            </if>
+            <if test="disable != null">
+                #{disable,jdbcType=VARCHAR},
+            </if>
+            <if test="isactive != null">
+                #{isactive,jdbcType=INTEGER},
+            </if>
+            <if test="activeTime != null">
+                #{activeTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isalive != null">
+                #{isalive,jdbcType=INTEGER},
+            </if>
+            <if test="breathTime != null">
+                #{breathTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectBindDeviceBySn" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select * from t_control_device where device_sn = #{sn} and disable = 0
+  </select>
+
+    <update id="unBindDevice">
+    update t_control_device set disable = 1 where device_sn = #{sn} and user_id = #{userId} and isActive = 0
+  </update>
+
+    <select id="selectMineDeviceInfoList" resultMap="MineDeviceInfoMap">
+        SELECT
+        tcd.device_sn,
+        tcd.device_name,
+        tcd.device_type,
+        tcd.user_id,
+        tcd.isActive,
+        tcd.isalive,
+        tcd.pwd,
+        tcp.power,
+        tcs.siren_status AS siren
+        FROM
+        t_control_device tcd
+        LEFT JOIN t_control_device_power tcp ON tcd.device_sn = tcp.devicesn
+        LEFT JOIN t_control_device_siren tcs ON tcd.device_sn = tcs.devicesn
+        WHERE
+        tcd.user_id = #{userId}
+        AND tcd.DISABLE = 0
+        <if test="deviceType != null">
+            and tcd.device_type = #{deviceType}
+        </if>
+    </select>
+
+    <select id="selectBeAuthedDeviceInfoList" resultMap="BeAuthedDeviceInfoMap">
+        select tcd.device_sn,
+        tcd.device_name,
+        tcd.device_type,
+        tcd.user_id,
+        tcd.isalive,
+        tcad.pwd
+        from t_control_device tcd , t_control_authdevice tcad
+        where tcd.id = tcad.bind_id
+        and tcd.disable = 0
+        and tcad.is_valid = 1
+        and tcad.other_userid = #{userId}
+        <if test="deviceType != null">
+            and tcd.device_type = #{deviceType}
+        </if>
+    </select>
+
+    <select id="selectAuthedUserInfoList" parameterType="java.lang.String" resultMap="AuthedUserInfoMap">
+    select tcu.head_img  ,tcu.mobile,tcu.country_code,tcad.create_time
+    from t_control_user tcu,t_control_device tcd,t_control_authdevice tcad
+    where tcad.bind_id = tcd.id
+    and  tcd.disable = 0
+    and tcad.other_userid = tcu.id
+    and tcad.is_valid = 1
+    and tcd.device_sn = #{sn}
+  </select>
+
+    <update id="activeDevice">
+    update t_control_device set isActive = 1,active_time = now() , update_time = now()  where disable = 0 and device_sn = #{deviceSn} and user_id = #{userId}
+  </update>
+
+    <update id="updateAdminKey">
+    update t_control_device set pwd = #{pwd} , update_time =now() where user_id = #{userId} and device_sn = #{deviceSn}
+  </update>
+
+    <update id="unBindDeviceByRecordIdAnduserId">
+    updatet t_control_device set disable = 1,update_time=now() where id = #{recordId} and user_id = #{userId}
+  </update>
+
+    <update id="breath">
+    update t_control_device set isalive = 1,breath_time=now(),update_time=now() where device_sn = #{deviceSn} and isdisable = 0 and isactive =1
+  </update>
+
+    <update id="setDeviceToDead">
+    update t_control_device set isalive = 0,update_time=now() where device_sn = #{deviceSn} and isdisable = 0 and isactive =1
+  </update>
+</mapper>

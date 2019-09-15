@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="control-system-eureka" />
+        <module name="control-system-common" />
+        <module name="control-system-mqtt-api" />
+        <module name="control-system-customer-api" />
+        <module name="control-system-mqtt-service" />
+        <module name="control-system-device-api" />
+        <module name="control-system-zuul" />
+        <module name="control-system-device-service" />
+        <module name="control-system-configserver" />
+        <module name="control-system-customer-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="control-system-common" target="1.8" />
+      <module name="control-system-configserver" target="1.8" />
+      <module name="control-system-configserver (1)" target="1.8" />
+      <module name="control-system-customer" target="1.8" />
+      <module name="control-system-customer-api" target="1.8" />
+      <module name="control-system-customer-service" target="1.8" />
+      <module name="control-system-device" target="1.8" />
+      <module name="control-system-device-api" target="1.8" />
+      <module name="control-system-device-service" target="1.8" />
+      <module name="control-system-eureka" target="1.8" />
+      <module name="control-system-mqtt" target="1.8" />
+      <module name="control-system-mqtt-api" target="1.8" />
+      <module name="control-system-mqtt-service" target="1.8" />
+      <module name="control-system-zuul" target="1.8" />
+      <module name="control-system1.0" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="control-system-common" options="-parameters -extdirs &quot;D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-common/lib&quot;" />
+      <module name="control-system-configserver" options="-parameters" />
+      <module name="control-system-configserver (1)" options="-parameters" />
+      <module name="control-system-customer" options="-parameters" />
+      <module name="control-system-customer-api" options="-parameters" />
+      <module name="control-system-customer-service" options="-parameters" />
+      <module name="control-system-device" options="-parameters" />
+      <module name="control-system-device-api" options="-parameters" />
+      <module name="control-system-device-service" options="-parameters" />
+      <module name="control-system-eureka" options="-parameters" />
+      <module name="control-system-mqtt" options="-parameters" />
+      <module name="control-system-mqtt-api" options="-parameters" />
+      <module name="control-system-mqtt-service" options="-parameters" />
+      <module name="control-system-zuul" options="-parameters" />
+      <module name="control-system1.0" options="-parameters" />
+    </option>
+  </component>
+</project>
