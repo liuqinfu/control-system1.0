@@ -16,6 +16,7 @@
       <module fileurl="file://$PROJECT_DIR$/control-system-mqtt/control-system-mqtt-service/control-system-mqtt-service.iml" filepath="$PROJECT_DIR$/control-system-mqtt/control-system-mqtt-service/control-system-mqtt-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/control-system-zuul/control-system-zuul.iml" filepath="$PROJECT_DIR$/control-system-zuul/control-system-zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/control-system1.0.iml" filepath="$PROJECT_DIR$/control-system1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wifihots/wifihots.iml" filepath="$PROJECT_DIR$/wifihots/wifihots.iml" />
     </modules>
   </component>
 </project>

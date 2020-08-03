@@ -11,6 +11,7 @@
         <module>control-system-mqtt</module>
         <module>control-system-device</module>
         <module>control-system-common</module>
+        <module>wifihots</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

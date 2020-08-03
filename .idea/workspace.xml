@@ -1,8 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:maven" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:control-system-mqtt" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7c7de931-d20c-4dc5-8a4d-262f9141ce2c" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="7c7de931-d20c-4dc5-8a4d-262f9141ce2c" name="Default Changelist" comment="获取wifi热点以及密码、共享自己的wifi">
+      <change afterPath="$PROJECT_DIR$/wifihots/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/WIFIHotApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/advice/WebRequestAroundAdvice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/api/controller/ClientBrandController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/api/controller/WiFiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/api/controller/WiFiFindController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/api/controller/WiFiFlowLogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/annotation/CodeAnnotation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/annotation/ExtPageHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/code/RspFailResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/code/RspResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/code/RspSuccessResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/finals/CodeFinals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/finals/CodeMsgFinals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/finals/PubFinals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/utils/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/utils/Page.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/utils/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/utils/PageUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/common/utils/StringUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/config/InterceptorConfigure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/config/Swagger2Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/ClientBrandMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/ClientToClientSignalMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/WiFiInfoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/WiFiLinkMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/WiFiUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/WifiFlowLogMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/WifiMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/mapper/WifiUserBrandMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/ClientBrand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/ClientBrandSeries.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/ClientToClientSignal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/WiFi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/WiFiInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/WiFiLink.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/WifiFlowLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/WifiUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/dao/model/WifiUserBrand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/interceptor/AccessControlAllowOriginInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/interceptor/PageInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/AnalyzeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/ClientBrandService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/FlowCountService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/WiFiInfoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/WiFiUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/WifiFlowLogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/WifiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/WifiUserBrandService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/AnalyzeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/ClientBrandServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/WiFiInfoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/WiFiUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/WifiFlowLogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/WifiServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/java/com/aether/sos/wifi/service/impl/WifiUserBrandServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/ClientBrandMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/ClientToClientSignalMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/WiFiInfoMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/WiFiLinkMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/WiFiUserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/WifiFlowLogMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/WifiMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/src/main/resources/mapping/WifiUserBrandMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/wifihots/wifihots.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,14 +125,23 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/develop/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="$USER_HOME$/develop/apache-maven-3.5.2/conf/settings.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="1Qb6TirXyzUdjg5rfUknSdW3OrK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="MyBatisLogPluginparameters" value="Parameters:" />
     <property name="MyBatisLogPluginpreparing" value="Preparing:" />
@@ -31,14 +149,20 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../SIPLockplatform" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/wifihots/src/main/resources" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3862069" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -47,11 +171,11 @@
       <recent name="com.aether.configserver" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/wifihots/src/main/resources" />
+      <recent name="$PROJECT_DIR$/wifihots/src/main/java" />
+      <recent name="$PROJECT_DIR$/wifihot" />
       <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-zuul\src\main\resources" />
       <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-mqtt\control-system-mqtt-service\src\main\resources" />
-      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-eureka\src\main\resources" />
-      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-device\control-system-device-service\src\main\resources" />
-      <recent name="D:\companySVN\CONTROL_SYSTEM\1.Engineering\1.04 Coding\trunk\back\control-system1.0\control-system-customer\control-system-customer-service\src\main\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -59,16 +183,6 @@
       <set>
         <option value="SpringBootApplicationConfigurationType" />
       </set>
-    </option>
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
     </option>
   </component>
   <component name="RunManager" selected="Application.AESUtils">
@@ -133,22 +247,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <option name="contentProportion" value="0.16550657" />
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@65a2f4ba" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -168,10 +266,44 @@
       <workItem from="1568199041774" duration="4191000" />
       <workItem from="1568248279342" duration="29116000" />
       <workItem from="1568430594592" duration="2205000" />
+      <workItem from="1596424154204" duration="597000" />
     </task>
+    <task id="LOCAL-00001" summary="获取wifi热点以及密码、共享自己的wifi">
+      <created>1596424323155</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1596424323156</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="获取wifi热点以及密码、共享自己的wifi" />
+    <option name="LAST_COMMIT_MESSAGE" value="获取wifi热点以及密码、共享自己的wifi" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="221" y="100" key="SettingsEditor" timestamp="1596424752412">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1596424752412" />
+    <state x="88" y="124" key="new project wizard" timestamp="1596424406836">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="88" y="124" key="new project wizard/0.23.1440.877@0.23.1440.877" timestamp="1596424406836" />
   </component>
 </project>
