@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aether.sos.wifi.dao.mapper.WifiFlowLogMapper">
+    <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.WiFiLink" >
+        <result column="ID" property="id" jdbcType="VARCHAR" />
+        <result column="wifi_info_id" property="wifiInfoId" jdbcType="VARCHAR" />
+        <result column="wifi_link_user_id" property="wifiLinkUserId" jdbcType="VARCHAR" />
+        <result column="link_start_time" property="linkStartTime" jdbcType="TIMESTAMP" />
+        <result column="link_end_time" property="linkEndTime" jdbcType="TIMESTAMP" />
+        <result column="link_status" property="linkStatus" jdbcType="INTEGER" />
+        <result column="link_day_flow" property="linkDayFlow" jdbcType="VARCHAR" />
+        <result column="link_week_flow" property="linkWeekFlow" jdbcType="VARCHAR" />
+        <result column="link_month_flow" property="linkMonthFlow" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="findWifiLinkByDate" parameterType="com.aether.sos.wifi.dao.model.WifiFlowLog"
+            resultMap="BaseResultMap">
+               SELECT  *  FROM `wifi_link` t
+               WHERE DATE_FORMAT(t.link_start_time,'%Y%m%d')=#{flowTimeStr,jdbcType=VARCHAR}
+               and wifi_info_id = #{wifiInfoId,jdbcType=VARCHAR}
+                 ORDER BY link_start_time DESC LIMIT 1
+    </select>
+
+
+    <select id="findWifiLinkLast" parameterType="com.aether.sos.wifi.dao.model.WifiFlowLog"
+            resultMap="BaseResultMap" >
+               SELECT  *  FROM `wifi_link` t
+               WHERE  wifi_info_id = #{wifiInfoId,jdbcType=VARCHAR}
+                 ORDER BY link_start_time DESC LIMIT 1
+    </select>
+
+    <select id="findWifiFlowLog" parameterType="com.aether.sos.wifi.dao.model.WifiFlowLog"
+            resultType="com.aether.sos.wifi.dao.model.WifiFlowLog">
+             SELECT
+            `ID`,
+            `wifi_info_id` as wifiInfoId,
+            `flow_time` as flowTime,
+            `flow`
+            FROM
+             `wifi_flow_log` t
+             <where>
+                 1 = 1
+                 <if test="customer_id != null">
+                     and wifi_info_id = #{wifiInfoId}
+                 </if>
+             </where>
+    </select>
+
+
+    <insert id="insertSelective" parameterType="com.aether.sos.wifi.dao.model.WifiFlowLog" >
+        insert into wifi_flow_log
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                ID,
+            </if>
+            <if test="wifiInfoId != null" >
+                wifi_info_id,
+            </if>
+            <if test="flowTime != null" >
+                flow_time,
+            </if>
+            <if test="flow != null" >
+                flow,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="id != null" >
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiInfoId != null" >
+                #{wifiInfoId,jdbcType=VARCHAR},
+            </if>
+            <if test="flowTime != null" >
+                #{flowTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="flow != null" >
+                #{flow,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

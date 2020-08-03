@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.sos.wifi.dao.mapper.WifiUserBrandMapper" >
+  <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.WifiUserBrand" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="wifi_user_id" property="wifiUserId" jdbcType="CHAR" />
+    <result column="brand_id" property="brandId" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="com.aether.sos.wifi.dao.model.WifiUserBrand" >
+    insert into wifi_user_brand (id, wifi_user_id, brand_id
+      )
+    values (#{id,jdbcType=CHAR}, #{wifiUserId,jdbcType=CHAR}, #{brandId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aether.sos.wifi.dao.model.WifiUserBrand" >
+    insert into wifi_user_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="wifiUserId != null" >
+        wifi_user_id,
+      </if>
+      <if test="brandId != null" >
+        brand_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="wifiUserId != null" >
+        #{wifiUserId,jdbcType=CHAR},
+      </if>
+      <if test="brandId != null" >
+        #{brandId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <insert id="insertRecordByImei">
+    insert into wifi_user_brand(id,wifi_user_id, brand_id) values(
+    #{id},(select ID from wifi_user where IMEI=#{imei}),#{brandId}
+    )
+  </insert>
+</mapper>

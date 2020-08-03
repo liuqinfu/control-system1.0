@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.sos.wifi.dao.mapper.ClientToClientSignalMapper" >
+  <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.ClientToClientSignal" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="hot_brand_series_id" property="hotBrandSeriesId" jdbcType="CHAR" />
+    <result column="client_brand_series_id" property="clientBrandSeriesId" jdbcType="CHAR" />
+    <result column="hot_net_type" property="hotNetType" jdbcType="INTEGER" />
+    <result column="-90dBm" property="n90dbm" jdbcType="VARCHAR" />
+    <result column="-70dBm" property="n70dbm" jdbcType="VARCHAR" />
+    <result column="-50dBm" property="n50dbm" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.aether.sos.wifi.dao.model.ClientToClientSignal" >
+    insert into t_wifi_client_to_client_signal (id, hot_brand_series_id, client_brand_series_id, 
+      hot_net_type, n90dBm, n70dBm,
+      n50dBm)
+    values (#{id,jdbcType=CHAR}, #{hotBrandSeriesId,jdbcType=CHAR}, #{clientBrandSeriesId,jdbcType=CHAR}, 
+      #{hotNetType,jdbcType=INTEGER}, #{n90dbm,jdbcType=VARCHAR}, #{n70dbm,jdbcType=VARCHAR},
+      #{n50dbm,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.aether.sos.wifi.dao.model.ClientToClientSignal" >
+    insert into t_wifi_client_to_client_signal
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="hotBrandSeriesId != null" >
+        hot_brand_series_id,
+      </if>
+      <if test="clientBrandSeriesId != null" >
+        client_brand_series_id,
+      </if>
+      <if test="hotNetType != null" >
+        hot_net_type,
+      </if>
+      <if test="n90dbm != null" >
+        n90dBm,
+      </if>
+      <if test="n70dbm != null" >
+        n70dBm,
+      </if>
+      <if test="n50dbm != null" >
+        n50dBm,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="hotBrandSeriesId != null" >
+        #{hotBrandSeriesId,jdbcType=CHAR},
+      </if>
+      <if test="clientBrandSeriesId != null" >
+        #{clientBrandSeriesId,jdbcType=CHAR},
+      </if>
+      <if test="hotNetType != null" >
+        #{hotNetType,jdbcType=INTEGER},
+      </if>
+      <if test="n90dbm != null" >
+        #{n90dbm,jdbcType=VARCHAR},
+      </if>
+      <if test="n70dbm != null" >
+        #{n70dbm,jdbcType=VARCHAR},
+      </if>
+      <if test="n50dbm != null" >
+        #{n50dbm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://123.58.34.188:33306/siplock?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowMultiQueries=true
+#    url: jdbc:mysql://localhost:3306/siplock?serverTimezone=Asia/Shanghai&characterEncoding=utf-8&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 50
+    minIdle: 50
+    maxActive: 200
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis:
+  type-aliases-package: com.aether.sos.wifi.dao.model  # 注意：对应实体类的路径
+  configuration:
+    mapUnderscoreToCamelCase: true
+    callSettersOnNulls: true
+    logImpl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapping/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
+server:
+  port: 8180

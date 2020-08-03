@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.sos.wifi.dao.mapper.WiFiInfoMapper">
+    <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.WiFiInfo">
+        <result column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="wifi_name" property="wifiName" jdbcType="VARCHAR"/>
+        <result column="wifi_bssid" property="wifiBssid" jdbcType="VARCHAR"/>
+        <result column="wifi_password" property="wifiPassword" jdbcType="VARCHAR"/>
+        <result column="singal_strength" property="singalStrength" jdbcType="VARCHAR"/>
+        <result column="wifi_user_id" property="wifiUserId" jdbcType="VARCHAR"/>
+        <result column="wifi_status" property="wifiStatus" jdbcType="INTEGER"/>
+        <result column="latitude" property="latitude" jdbcType="VARCHAR"/>
+        <result column="longitude" property="longitude" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="sql_base_wifiInfo">
+    ID, wifi_name,wifi_bssid, wifi_password,
+      singal_strength, wifi_user_id,wifi_status,latitude,longitude
+  </sql>
+    <insert id="insert" parameterType="com.aether.sos.wifi.dao.model.WiFiInfo">
+        insert into wifi_info (
+        <include refid="sql_base_wifiInfo"/>
+        )
+        values (#{id,jdbcType=VARCHAR}, #{wifiName,jdbcType=VARCHAR},#{wifiBssid,jdbcType=VARCHAR} ,
+        #{wifiPassword,jdbcType=VARCHAR},
+        #{singalStrength,jdbcType=VARCHAR}, #{wifiUserId,jdbcType=VARCHAR}), #{wifiStatus,jdbcType=VARCHAR},
+        #{latitude,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.aether.sos.wifi.dao.model.WiFiInfo">
+        insert into wifi_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="wifiName != null">
+                wifi_name,
+            </if>
+            <if test="wifiBssid != null">
+                wifi_bssid,
+            </if>
+            <if test="wifiPassword != null">
+                wifi_password,
+            </if>
+            <if test="singalStrength != null">
+                singal_strength,
+            </if>
+            <if test="wifiUserId != null">
+                wifi_user_id,
+            </if>
+            <if test="wifiStatus != null">
+                wifi_status,
+            </if>
+            <if test="latitude != null">
+                latitude,
+            </if>
+            <if test="longitude != null">
+                longitude,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiName != null">
+                #{wifiName,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiBssid != null">
+                #{wifiBssid,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiPassword != null">
+                #{wifiPassword,jdbcType=VARCHAR},
+            </if>
+            <if test="singalStrength != null">
+                #{singalStrength,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiUserId != null">
+                #{wifiUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiStatus != null">
+                #{wifiStatus,jdbcType=INTEGER},
+            </if>
+            <if test="latitude != null">
+                #{latitude,jdbcType=VARCHAR},
+            </if>
+            <if test="longitude != null">
+                #{longitude,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <insert id="insertUnexistWiFiInfo">
+        <foreach collection="wifiList" item="item" index="index" separator=";">
+            insert into wifi_info (
+            <include refid="sql_base_wifiInfo"/>
+            )
+            select #{item.id,jdbcType=VARCHAR},
+            #{item.wifiName,jdbcType=VARCHAR},
+            #{item.wifiBssid,jdbcType=VARCHAR},
+            #{item.wifiPassword,jdbcType=VARCHAR},
+            #{item.singalStrength,jdbcType=VARCHAR},
+            #{item.wifiUserId,jdbcType=VARCHAR},
+            #{item.wifiStatus,jdbcType=VARCHAR},
+            #{item.latitude,jdbcType=VARCHAR},
+            #{item.longitude,jdbcType=VARCHAR}
+            from dual
+            where not exists (select wifi_bssid from wifi_info where wifi_bssid = #{item.wifiBssid,jdbcType=VARCHAR})
+        </foreach>
+        ;
+    </insert>
+    <select id="selectWifiInfoByBssid" resultMap="BaseResultMap">
+        select
+        <include refid="sql_base_wifiInfo"/>
+        from wifi_info where wifi_bssid=#{bssid}
+    </select>
+    <select id="selectWiFiInfos" resultMap="BaseResultMap">
+        select
+        <include refid="sql_base_wifiInfo"/>
+        from wifi_info
+        <choose>
+            <when test="wifiBssids != null">
+                where wifi_password is not null and wifi_bssid in
+                <foreach collection="wifiBssids" item="item" index="index" open="("
+                         separator="," close=")">
+                    #{item}
+                </foreach>
+            </when>
+            <otherwise>
+                where 1 != 1
+            </otherwise>
+        </choose>
+
+    </select>
+
+    <select id="selectWiFiInfoByIMEI" resultMap="BaseResultMap">
+        select
+        i.ID,
+        i.wifi_name,
+        i.wifi_bssid,
+        i.wifi_password,
+        i.singal_strength,
+        i.wifi_user_id,
+        i.wifi_status,
+        i.latitude,
+        i.longitude
+        from wifi_info i, wifi_user u
+        where i.wifi_user_id=u.ID and u.IMEI=#{imei}
+    </select>
+
+    <select id="selectWfifiInfoByBssid" resultMap="BaseResultMap">
+        select
+        <include refid="sql_base_wifiInfo"/>
+        from wifi_info where wifi_bssid=#{wifiBssid};
+    </select>
+
+    <select id="selectWiFiInfosWithBrandId" resultMap="BaseResultMap">
+        SELECT
+        wi.ID, wi.wifi_name,wi.wifi_bssid, wi.wifi_password,
+        wi.singal_strength, wi.wifi_user_id,wi.wifi_status,wi.latitude,wi.longitude
+        FROM
+        wifi_info wi,
+        wifi_user wu,
+        wifi_user_brand wub,
+        t_wifi_client_to_client_signal twctcs
+        WHERE
+        wi.wifi_password is not null
+        and  wi.wifi_bssid IN
+        <foreach collection="wifiBssids" index="index" item="bssid" open="(" separator="," close=")">
+            #{bssid}
+        </foreach>
+        AND wi.wifi_user_id = wu.ID
+        AND wu.ID = wub.wifi_user_id
+        AND wub.brand_id = twctcs.hot_brand_series_id
+        AND twctcs.client_brand_series_id = 4
+        ORDER BY
+        twctcs.n50dBm desc,twctcs.n70dBm desc,twctcs.n90dBm DESC
+
+    </select>
+
+    <update id="updateWiFiStatus">
+    update wifi_info set wifi_status=#{wifiStatus} where wifi_name=#{wifiName}
+  </update>
+    <update id="updateWiFiInfo">
+        update wifi_info set wifi_name=#{wfInfo.wifiName},wifi_password=#{wfInfo.wifiPassword},singal_strength=#{wfInfo.singalStrength},latitude=#{wfInfo.latitude} ,longitude = #{wfInfo.longitude}
+      where wifi_bssid=#{wfInfo.wifiBssid}
+    </update>
+    <update id="updateWiFiGPSByOwnerId">
+        update wifi_info set latitude=#{latitude} ,longitude = #{longitude} where wifi_user_id = #{ownerId}
+    </update>
+    <update id="update">
+    update wifi_info set wifi_name=#{wifiName},wifi_password=#{wifiPassword},
+          singal_strength=#{singalStrength},latitude=#{latitude} ,longitude = #{longitude}
+      where ID=#{id}
+  </update>
+    <update id="updateAndBindByBssid">
+    update wifi_info set wifi_name=#{wifiName},wifi_password=#{wifiPassword},
+          singal_strength=#{singalStrength}, wifi_user_id = #{wifiUserId},latitude=#{latitude} ,longitude = #{longitude}
+      where wifi_bssid=#{wifiBssid}
+  </update>
+</mapper>

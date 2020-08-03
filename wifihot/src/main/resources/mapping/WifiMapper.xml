@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aether.sos.wifi.dao.mapper.WifiMapper">
+    <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.WiFi">
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="wifi_name" jdbcType="VARCHAR" property="wifiName"/>
+        <result column="wifi_bssid" jdbcType="VARCHAR" property="wifiBssid"/>
+        <result column="wifi_password" jdbcType="VARCHAR" property="wifiPassword"/>
+        <result column="singal_strength" jdbcType="VARCHAR" property="singalStrength"/>
+        <result column="wifi_user_id" jdbcType="VARCHAR" property="wifiUserId"/>
+        <result column="wifi_status" jdbcType="VARCHAR" property="wifiStatus"/>
+        <result column="longitude" jdbcType="VARCHAR" property="longitude"/>
+        <result column="latitude" jdbcType="VARCHAR" property="latitude"/>
+        <result column="juli" jdbcType="VARCHAR" property="juli"/>
+        <!-- <result column="link_start_time" jdbcType="TIMESTAMP" property="createTime"/>-->
+    </resultMap>
+
+
+    <select id="findWifiByGps" parameterType="com.aether.sos.wifi.dao.model.WifiUser"
+            resultMap="BaseResultMap">
+        SELECT DISTINCT
+          `wifi_name`,
+          i.wifi_bssid,
+          i.ID,
+          `singal_strength`,
+          `wifi_password`,
+          `wifi_status`,
+          u.IMEI,
+          i.longitude,
+          i.latitude,
+          ROUND(
+            6378.138 * 2 * ASIN(
+              SQRT(
+                POW(
+                  SIN(
+                    (
+                      #{latitude} * PI() / 180 - i.latitude * PI() / 180
+                    ) / 2
+                  ),
+                  2
+                ) + COS( #{latitude} * PI() / 180) * COS(i.latitude * PI() / 180) * POW(
+                  SIN(
+                    (
+                      #{longitude} * PI() / 180 - i.longitude * PI() / 180
+                    ) / 2
+                  ),
+                  2
+                )
+              )
+            ) * 1000
+          ) AS juli
+        FROM
+          wifi_info i LEFT JOIN `wifi_user` u ON i.`wifi_user_id`=u.`ID`
+          HAVING juli  <![CDATA[< 1000]]>
+            ORDER BY juli asc
+    </select>
+
+    <select id="findWifiByParam" parameterType="com.aether.sos.wifi.dao.model.WifiUser"
+            resultType="java.util.Map">
+         SELECT
+              i.`ID` id,
+              u.IMEI imei,
+              i.wifi_bssid as wifiBssid,
+              `wifi_name` wifiName,
+              `wifi_password` wifiPassword,
+              `singal_strength` singalStrength,
+              `wifi_user_id` wifiUserId,
+              `wifi_status` wifiStatus,
+              u.`latitude` latitude,
+              u.`longitude` longitude
+         FROM
+           `wifi_info`  i  JOIN `wifi_user` u ON i.`wifi_user_id` = u.`ID`
+    </select>
+
+    <select id="findWifiByParamToPage" resultType="java.util.Map">
+         SELECT
+              i.`ID` id,
+              u.IMEI imei,
+              i.wifi_bssid as wifiBssid,
+              `wifi_name` wifiName,
+              `wifi_password` wifiPassword,
+              `singal_strength` singalStrength,
+              `wifi_user_id` wifiUserId,
+              `wifi_status` wifiStatus,
+              u.`latitude` latitude,
+              u.`longitude` longitude
+         FROM
+           `wifi_info`  i  JOIN `wifi_user` u ON i.`wifi_user_id` = u.`ID`
+    </select>
+
+</mapper>

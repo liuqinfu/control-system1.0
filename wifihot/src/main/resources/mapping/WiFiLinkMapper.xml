@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.sos.wifi.dao.mapper.WiFiLinkMapper">
+    <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.WiFiLink">
+        <result column="ID" property="id" jdbcType="VARCHAR"/>
+        <result column="wifi_info_id" property="wifiInfoId" jdbcType="VARCHAR"/>
+        <result column="wifi_link_user_id" property="wifiLinkUserId" jdbcType="VARCHAR"/>
+        <result column="link_start_time" property="linkStartTime" jdbcType="TIMESTAMP"/>
+        <result column="link_end_time" property="linkEndTime" jdbcType="TIMESTAMP"/>
+        <result column="link_status" property="linkStatus" jdbcType="INTEGER"/>
+        <result column="flow" property="flow" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.aether.sos.wifi.dao.model.WiFiLink">
+    insert into wifi_link (ID, wifi_info_id, wifi_link_user_id, 
+      link_start_time, link_end_time, link_status, 
+      flow
+      )
+    values (#{id,jdbcType=VARCHAR}, #{wifiInfoId,jdbcType=VARCHAR}, #{wifiLinkUserId,jdbcType=VARCHAR}, 
+      #{linkStartTime,jdbcType=TIMESTAMP}, #{linkEndTime,jdbcType=TIMESTAMP}, #{linkStatus,jdbcType=INTEGER}, 
+      #{flow,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.aether.sos.wifi.dao.model.WiFiLink">
+        insert into wifi_link
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="wifiInfoId != null">
+                wifi_info_id,
+            </if>
+            <if test="wifiLinkUserId != null">
+                wifi_link_user_id,
+            </if>
+            <if test="linkStartTime != null">
+                link_start_time,
+            </if>
+            <if test="linkEndTime != null">
+                link_end_time,
+            </if>
+            <if test="linkStatus != null">
+                link_status,
+            </if>
+            <if test="flow != null">
+                flow,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiInfoId != null">
+                #{wifiInfoId,jdbcType=VARCHAR},
+            </if>
+            <if test="wifiLinkUserId != null">
+                #{wifiLinkUserId,jdbcType=VARCHAR},
+            </if>
+            <if test="linkStartTime != null">
+                #{linkStartTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="linkEndTime != null">
+                #{linkEndTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="linkStatus != null">
+                #{linkStatus,jdbcType=INTEGER},
+            </if>
+            <if test="flow != null">
+                #{flow,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateLinkEndTime">
+    update wifi_link set link_end_time = now() where id = #{linkRecordId}
+  </update>
+    <select id="queryLinkedUsersByWifiIdToPage" resultType="java.util.Map">
+        SELECT
+            wu.ID userId,
+            wu.IMEI imei,
+            wu.longitude,
+            wu.latitude,
+            wu.black_list isBlack,
+            wl.link_start_time startTime,
+            wl.link_end_time endTime
+        FROM
+            wifi_user wu,
+            wifi_link wl
+        WHERE
+            wl.wifi_link_user_id = wu.ID
+            and wl.wifi_info_id = #{wifiId}
+            ORDER BY wl.link_end_time is not null,
+            wl.link_end_time DESC
+  </select>
+</mapper>

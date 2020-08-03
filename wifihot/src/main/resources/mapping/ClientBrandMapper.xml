@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.aether.sos.wifi.dao.mapper.ClientBrandMapper" >
+  <resultMap id="BaseResultMap" type="com.aether.sos.wifi.dao.model.ClientBrand" >
+    <result column="id" property="id" jdbcType="CHAR" />
+    <result column="brand" property="brand" jdbcType="VARCHAR" />
+    <result column="series" property="series" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ClientBrandsMap" type="com.aether.sos.wifi.dao.model.ClientBrandSeries">
+    <result column="brand" property="brand" jdbcType="VARCHAR"/>
+    <collection property="clientBrands" ofType="com.aether.sos.wifi.dao.model.ClientBrand">
+      <result column="id" property="id" jdbcType="CHAR" />
+      <result column="brand" property="brand" jdbcType="VARCHAR" />
+      <result column="series" property="series" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+  <insert id="insert" parameterType="com.aether.sos.wifi.dao.model.ClientBrand" >
+    insert into t_wifi_client_brand (id, brand, series
+      )
+    values (#{id,jdbcType=CHAR}, #{brand,jdbcType=VARCHAR}, #{series,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.aether.sos.wifi.dao.model.ClientBrand" >
+    insert into t_wifi_client_brand
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="brand != null" >
+        brand,
+      </if>
+      <if test="series != null" >
+        series,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="series != null" >
+        #{series,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="queryClientBrandSeries" resultMap="ClientBrandsMap">
+    select brand,series,id,brand from t_wifi_client_brand
+  </select>
+
+</mapper>
